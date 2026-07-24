@@ -1,4 +1,4 @@
-package com.marivohooka
+package com.splashhistory.journay
 
 import android.app.Application
 import com.facebook.react.PackageList

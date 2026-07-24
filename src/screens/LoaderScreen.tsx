@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { ImageBackground, StyleSheet } from 'react-native';
+import { Image, ImageBackground, StyleSheet, View } from 'react-native';
 
 import { LoaderSpinner } from '../components/loader/LoaderSpinner';
 import { useNavigation } from '../navigation/NavigationContext';
@@ -16,10 +16,21 @@ export function LoaderScreen() {
 
   return (
     <ImageBackground
-      source={require('../assets/marivo_loader_bg.png')}
+      source={require('../assets/marivo_app_background.png')}
       resizeMode="cover"
       style={styles.LoaderScreenRootTide}
     >
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Image
+          source={require('../assets/icon.png')}
+          style={{
+            width: 220,
+            height: 220,
+            marginBottom: 20,
+            borderRadius: 50,
+          }}
+        />
+      </View>
       <LoaderSpinner size={40} style={styles.LoaderScreenSpinnerCurrent} />
     </ImageBackground>
   );

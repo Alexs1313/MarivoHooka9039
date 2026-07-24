@@ -27,7 +27,7 @@ const NavigationContext = createContext<NavigationContextValue | null>(null);
 export function NavigationProvider({children}: {children: React.ReactNode}) {
   const [phase, setPhase] = useState<AppPhase>('Loader');
   const [onboardingStep, setOnboardingStep] = useState(0);
-  const [mainTab, setMainTab] = useState<MainTab>('Discover');
+  const [mainTab, setMainTabState] = useState<MainTab>('Discover');
   const [overlay, setOverlay] = useState<MainOverlay>({type: 'none'});
 
   const finishLoading = useCallback(() => {
@@ -43,6 +43,11 @@ export function NavigationProvider({children}: {children: React.ReactNode}) {
       }
       return current + 1;
     });
+  }, []);
+
+  const setMainTab = useCallback((tab: MainTab) => {
+    setOverlay({type: 'none'});
+    setMainTabState(tab);
   }, []);
 
   const openArticleDetail = useCallback((articleId: string) => {
@@ -72,6 +77,7 @@ export function NavigationProvider({children}: {children: React.ReactNode}) {
       finishLoading,
       advanceOnboarding,
       mainTab,
+      setMainTab,
       overlay,
       openArticleDetail,
       closeOverlay,

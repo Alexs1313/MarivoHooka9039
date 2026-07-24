@@ -127,6 +127,7 @@ const styles = StyleSheet.create({
     lineHeight: 23,
     marginTop: 12,
     opacity: 0.85,
+    marginBottom: 14,
   },
   OnboardingScreenSpacerHorizon: {
     flex: 1,

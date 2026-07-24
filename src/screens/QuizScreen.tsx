@@ -334,6 +334,7 @@ const styles = StyleSheet.create({
   QuizScreenIntroButtonWrapVoyage: {
     marginTop: 28,
     width: '100%',
+    marginBottom: 20,
   },
   QuizScreenQuestionContentHarbor: {
     paddingBottom: 40,

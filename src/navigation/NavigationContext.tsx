@@ -45,6 +45,11 @@ export function NavigationProvider({children}: {children: React.ReactNode}) {
     });
   }, []);
 
+  const selectMainTab = useCallback((tab: MainTab) => {
+    setOverlay({type: 'none'});
+    setMainTab(tab);
+  }, []);
+
   const openArticleDetail = useCallback((articleId: string) => {
     setOverlay({type: 'ArticleDetail', articleId});
   }, []);
@@ -61,7 +66,7 @@ export function NavigationProvider({children}: {children: React.ReactNode}) {
       finishLoading,
       advanceOnboarding,
       mainTab,
-      setMainTab,
+      setMainTab: selectMainTab,
       overlay,
       openArticleDetail,
       closeOverlay,
@@ -72,6 +77,7 @@ export function NavigationProvider({children}: {children: React.ReactNode}) {
       finishLoading,
       advanceOnboarding,
       mainTab,
+      selectMainTab,
       overlay,
       openArticleDetail,
       closeOverlay,

@@ -1,10 +1,18 @@
-import React, {useState} from 'react';
-import {Image, ImageBackground, ScrollView, StyleSheet, Text, View} from 'react-native';
+import React, { useState } from 'react';
+import {
+  Image,
+  ImageBackground,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 
-import {PrimaryButton} from '../components/buttons/PrimaryButton';
-import {Dropdown} from '../components/forms/Dropdown';
-import {SegmentedControl} from '../components/forms/SegmentedControl';
-import {colors, fonts, fontSize, layout} from '../constants/theme';
+import { PrimaryButton } from '../components/buttons/PrimaryButton';
+import { Dropdown } from '../components/forms/Dropdown';
+
+import { SegmentedControl } from '../components/forms/SegmentedControl';
+import { colors, fonts, fontSize, layout } from '../constants/theme';
 import {
   FISH_SPECIES,
   SEASONS,
@@ -27,10 +35,12 @@ export function BaitFinderScreen() {
     <ImageBackground
       source={require('../assets/marivo_app_background.png')}
       resizeMode="cover"
-      style={styles.BaitFinderScreenRootTide}>
+      style={styles.BaitFinderScreenRootTide}
+    >
       <ScrollView
         contentContainerStyle={styles.BaitFinderScreenContentHarbor}
-        showsVerticalScrollIndicator={false}>
+        showsVerticalScrollIndicator={false}
+      >
         <Text style={styles.BaitFinderScreenTitleLantern}>Bait Finder</Text>
         <Text style={styles.BaitFinderScreenSubtitleDriftwood}>
           Find the perfect bait for your catch
@@ -101,7 +111,11 @@ export function BaitFinderScreen() {
                   value={result.alternatives.join(' • ')}
                 />
                 <Divider />
-                <ResultRow icon="🕒" label="Best Time" value={result.bestTime} />
+                <ResultRow
+                  icon="🕒"
+                  label="Best Time"
+                  value={result.bestTime}
+                />
                 <Divider />
                 <ResultRow icon="💡" label="Fishing Tip" value={result.tip} />
               </>
@@ -113,7 +127,11 @@ export function BaitFinderScreen() {
                   value="Not recommended for this water type"
                 />
                 <Divider />
-                <ResultRow icon="🕒" label="Best Time" value={result.bestTime} />
+                <ResultRow
+                  icon="🕒"
+                  label="Best Time"
+                  value={result.bestTime}
+                />
                 <Divider />
                 <ResultRow icon="💡" label="Fishing Tip" value={result.tip} />
               </>
@@ -132,7 +150,7 @@ type ResultRowProps = {
   gold?: boolean;
 };
 
-function ResultRow({icon, label, value, gold}: ResultRowProps) {
+function ResultRow({ icon, label, value, gold }: ResultRowProps) {
   return (
     <View style={styles.ResultRowRootHarbor}>
       <View style={styles.ResultRowIconWrapAnchor}>
@@ -144,7 +162,8 @@ function ResultRow({icon, label, value, gold}: ResultRowProps) {
           style={[
             styles.ResultRowValueLantern,
             gold && styles.ResultRowValueGoldVoyage,
-          ]}>
+          ]}
+        >
           {value}
         </Text>
       </View>
@@ -160,6 +179,7 @@ const styles = StyleSheet.create({
   BaitFinderScreenRootTide: {
     flex: 1,
   },
+
   BaitFinderScreenContentHarbor: {
     paddingBottom: 32,
     paddingHorizontal: layout.screenPaddingHorizontal,
@@ -172,6 +192,7 @@ const styles = StyleSheet.create({
     fontWeight: '800',
     lineHeight: 36,
   },
+
   BaitFinderScreenSubtitleDriftwood: {
     color: 'rgba(255, 241, 181, 0.7)',
     fontFamily: fonts.sansRegular,
@@ -184,6 +205,7 @@ const styles = StyleSheet.create({
     marginVertical: 12,
     width: 96,
   },
+
   BaitFinderScreenCardHull: {
     backgroundColor: 'rgba(10, 78, 88, 0.8)',
     borderColor: 'rgba(30, 183, 200, 0.2)',
@@ -192,7 +214,7 @@ const styles = StyleSheet.create({
     gap: 16,
     padding: 20,
     shadowColor: colors.black,
-    shadowOffset: {width: 0, height: 4},
+    shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.28,
     shadowRadius: 14,
     elevation: 6,
@@ -216,7 +238,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     padding: 20,
     shadowColor: colors.black,
-    shadowOffset: {width: 0, height: 4},
+    shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.26,
     shadowRadius: 12,
     elevation: 5,

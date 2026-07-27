@@ -1,10 +1,12 @@
 import React from 'react';
-import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
+import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 
-import {colors, fonts} from '../../constants/theme';
-import type {Article} from '../../data/articles';
-import {shareText} from '../../utils/share';
-import {ArticleTagBadge} from './ArticleTagBadge';
+import { colors, fonts } from '../../constants/theme';
+import type { Article } from '../../data/articles';
+
+import { shareText } from '../../utils/share';
+
+import { ArticleTagBadge } from './ArticleTagBadge';
 
 type ArticleCardProps = {
   article: Article;
@@ -20,49 +22,51 @@ export function ArticleCard({
   onToggleSaved,
 }: ArticleCardProps) {
   return (
-    <Pressable onPress={onPress} style={styles.ArticleCardHullReef}>
-      <View style={styles.ArticleCardPlaceholderCurrent}>
+    <Pressable onPress={onPress} style={styles.ArticleCardFacetChassis}>
+      <View style={styles.ArticleCardHeroChassis}>
         {article.hero ? (
           <Image
             source={article.hero}
             resizeMode="cover"
-            style={styles.ArticleCardHeroImageCurrent}
+            style={styles.ArticleCardHeroImageArt}
           />
-        ) : (
-          <View style={styles.ArticleCardPlaceholderDotFathom} />
-        )}
+        ) : null}
       </View>
 
-      <View style={styles.ArticleCardBodyHarbor}>
+      <View style={styles.ArticleCardBodyChassis}>
         <ArticleTagBadge label={article.period} />
 
-        <Text style={styles.ArticleCardTitleLantern}>{article.title}</Text>
+        <Text style={styles.ArticleCardTitleFiligree}>{article.title}</Text>
 
-        <Text numberOfLines={2} style={styles.ArticleCardDescriptionDriftwood}>
+        <Text numberOfLines={2} style={styles.ArticleCardDescriptionFiligree}>
           {article.shortDescription}
         </Text>
 
-        <View style={styles.ArticleCardActionsRowHorizon}>
+        <View style={styles.ArticleCardActionsRowFiligree}>
           <Pressable hitSlop={8} onPress={onToggleSaved}>
             <Image
               source={
                 saved
-                  ? require('../../assets/marivo_icon_heart_filled.png')
-                  : require('../../assets/marivo_icon_heart_outline.png')
+                  ? require('../../assets/hooka-marivo-guide-icon-heart-filled.png')
+                  : require('../../assets/hooka-marivo-guide-icon-heart-outline.png')
               }
               resizeMode="contain"
-              style={styles.ArticleCardActionIconCompass}
+              style={styles.ArticleCardActionIconSigil}
             />
           </Pressable>
           <Pressable
             hitSlop={8}
             onPress={() =>
-              shareText(article.title, `${article.title}\n\n${article.shortDescription}`)
-            }>
+              shareText(
+                article.title,
+                `${article.title}\n\n${article.shortDescription}`,
+              )
+            }
+          >
             <Image
-              source={require('../../assets/marivo_icon_share.png')}
+              source={require('../../assets/hooka-marivo-guide-icon-share.png')}
               resizeMode="contain"
-              style={styles.ArticleCardActionIconCompass}
+              style={styles.ArticleCardActionIconSigil}
             />
           </Pressable>
         </View>
@@ -72,46 +76,41 @@ export function ArticleCard({
 }
 
 const styles = StyleSheet.create({
-  ArticleCardHullReef: {
+  ArticleCardFacetChassis: {
     backgroundColor: colors.deepTeal,
     borderRadius: 16,
     overflow: 'hidden',
     shadowColor: colors.black,
-    shadowOffset: {width: 0, height: 4},
+    shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.28,
     shadowRadius: 14,
     elevation: 6,
     width: '100%',
   },
-  ArticleCardPlaceholderCurrent: {
+
+  ArticleCardHeroChassis: {
     alignItems: 'center',
     backgroundColor: colors.deepTeal,
     height: 140,
     justifyContent: 'center',
     width: '100%',
   },
-  ArticleCardHeroImageCurrent: {
+  ArticleCardHeroImageArt: {
     height: '100%',
     width: '100%',
   },
-  ArticleCardPlaceholderDotFathom: {
-    backgroundColor: colors.teal,
-    borderRadius: 20,
-    height: 40,
-    opacity: 0.28,
-    width: 40,
-  },
-  ArticleCardBodyHarbor: {
+  ArticleCardBodyChassis: {
     padding: 14,
   },
-  ArticleCardTitleLantern: {
+
+  ArticleCardTitleFiligree: {
     color: colors.gold,
     fontFamily: fonts.sansBold,
     fontSize: 16,
     fontWeight: '700',
     marginTop: 5,
   },
-  ArticleCardDescriptionDriftwood: {
+  ArticleCardDescriptionFiligree: {
     color: colors.cream,
     fontFamily: fonts.sansRegular,
     fontSize: 13,
@@ -119,13 +118,15 @@ const styles = StyleSheet.create({
     marginTop: 5,
     opacity: 0.78,
   },
-  ArticleCardActionsRowHorizon: {
+
+  ArticleCardActionsRowFiligree: {
     flexDirection: 'row',
     gap: 16,
     justifyContent: 'flex-end',
     marginTop: 12,
   },
-  ArticleCardActionIconCompass: {
+
+  ArticleCardActionIconSigil: {
     height: 18,
     width: 18,
   },

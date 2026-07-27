@@ -1,40 +1,42 @@
 import React from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
 
-import {colors, fonts} from '../../constants/theme';
-import type {TrophyRecord} from '../../data/records';
-import {TrophyLockIcon} from './TrophyLockIcon';
+import { Image, StyleSheet, Text, View } from 'react-native';
+
+import { colors, fonts } from '../../constants/theme';
+import type { TrophyRecord } from '../../data/records';
+
+import { TrophyLockIcon } from './TrophyLockIcon';
 
 type TrophyCardProps = {
   record: TrophyRecord;
   unlocked: boolean;
 };
 
-export function TrophyCard({record, unlocked}: TrophyCardProps) {
+export function TrophyCard({ record, unlocked }: TrophyCardProps) {
   return (
-    <View style={styles.TrophyCardHullReef}>
-      <View style={styles.TrophyCardImageFrameCurrent}>
+    <View style={styles.TrophyCardFacetChassis}>
+      <View style={styles.TrophyCardImageFrameArt}>
         {unlocked ? (
           <Image
             source={record.image}
             resizeMode="contain"
-            style={styles.TrophyCardImageCurrent}
+            style={styles.TrophyCardImageArt}
           />
         ) : (
           <>
             <TrophyLockIcon />
-            <Text style={styles.TrophyCardLockHintDriftwood}>
+            <Text style={styles.TrophyCardLockHintFiligree}>
               {`Get ${record.pointsRequired} points to get the trophy.`}
             </Text>
           </>
         )}
       </View>
 
-      <View style={styles.TrophyCardBodyHarbor}>
+      <View style={styles.TrophyCardBodyChassis}>
         <Text
           style={[
-            styles.TrophyCardTitleLantern,
-            !unlocked && styles.TrophyCardTitleLockedFathom,
+            styles.TrophyCardTitleFiligree,
+            !unlocked && styles.TrophyCardTitleLockedFiligree,
           ]}
         >
           {record.title}
@@ -42,11 +44,11 @@ export function TrophyCard({record, unlocked}: TrophyCardProps) {
 
         {unlocked && (
           <>
-            <Text style={styles.TrophyCardStatsDriftwood}>
+            <Text style={styles.TrophyCardStatsFiligree}>
               {`Weight: ${record.weight}\nLength: ${record.length}`}
             </Text>
             {record.paragraphs.map((paragraph, index) => (
-              <Text key={index} style={styles.TrophyCardParagraphDriftwood}>
+              <Text key={index} style={styles.TrophyCardParagraphFiligree}>
                 {paragraph}
               </Text>
             ))}
@@ -58,47 +60,51 @@ export function TrophyCard({record, unlocked}: TrophyCardProps) {
 }
 
 const styles = StyleSheet.create({
-  TrophyCardHullReef: {
+  TrophyCardFacetChassis: {
     backgroundColor: colors.deepTeal,
     borderRadius: 14,
     overflow: 'hidden',
     shadowColor: colors.black,
-    shadowOffset: {width: 0, height: 4},
+    shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.26,
     shadowRadius: 12,
     elevation: 6,
     width: '100%',
   },
-  TrophyCardImageFrameCurrent: {
+
+  TrophyCardImageFrameArt: {
     alignItems: 'center',
     height: 132,
     justifyContent: 'center',
     width: '100%',
   },
-  TrophyCardImageCurrent: {
+
+  TrophyCardImageArt: {
     height: '78%',
     width: '82%',
   },
-  TrophyCardLockHintDriftwood: {
+  TrophyCardLockHintFiligree: {
     color: colors.cream,
     fontFamily: fonts.sansRegular,
     fontSize: 12,
     marginTop: 10,
     textAlign: 'center',
   },
-  TrophyCardBodyHarbor: {
+  TrophyCardBodyChassis: {
     padding: 12,
   },
-  TrophyCardTitleLantern: {
+
+  TrophyCardTitleFiligree: {
     color: colors.gold,
     fontFamily: fonts.sansBold,
     fontSize: 13,
     fontWeight: '700',
   },
-  TrophyCardTitleLockedFathom: {
+
+  TrophyCardTitleLockedFiligree: {
     color: 'rgba(255, 210, 74, 0.6)',
   },
-  TrophyCardStatsDriftwood: {
+  TrophyCardStatsFiligree: {
     color: colors.cream,
     fontFamily: fonts.sansRegular,
     fontSize: 12,
@@ -106,7 +112,7 @@ const styles = StyleSheet.create({
     marginTop: 4,
     opacity: 0.7,
   },
-  TrophyCardParagraphDriftwood: {
+  TrophyCardParagraphFiligree: {
     color: colors.cream,
     fontFamily: fonts.sansRegular,
     fontSize: 12,

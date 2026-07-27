@@ -1,20 +1,23 @@
 import React from 'react';
-import {ImageBackground, ScrollView, StyleSheet, Text} from 'react-native';
+import { ImageBackground, ScrollView, StyleSheet, Text } from 'react-native';
 
-import {FactCard} from '../components/facts/FactCard';
-import {colors, fonts, fontSize} from '../constants/theme';
-import {QUICK_FACTS} from '../data/facts';
+import { FactCard } from '../components/facts/FactCard';
+import { colors, fonts, fontSize } from '../constants/theme';
+
+import { QUICK_FACTS } from '../data/facts';
 
 export function QuickFactsScreen() {
   return (
     <ImageBackground
-      source={require('../assets/marivo_app_background.png')}
+      source={require('../assets/hooka-marivo-guide-app-background.png')}
       resizeMode="cover"
-      style={styles.QuickFactsScreenRootTide}>
+      style={styles.QuickFactsScreenRootChassis}
+    >
       <ScrollView
-        contentContainerStyle={styles.QuickFactsScreenListHarbor}
-        showsVerticalScrollIndicator={false}>
-        <Text style={styles.QuickFactsScreenTitleLantern}>Quick Facts</Text>
+        contentContainerStyle={styles.QuickFactsScreenListChassis}
+        showsVerticalScrollIndicator={false}
+      >
+        <Text style={styles.QuickFactsScreenTitleFiligree}>Quick Facts</Text>
 
         {QUICK_FACTS.map((fact, index) => (
           <FactCard
@@ -29,17 +32,18 @@ export function QuickFactsScreen() {
 }
 
 const styles = StyleSheet.create({
-  QuickFactsScreenRootTide: {
+  QuickFactsScreenRootChassis: {
     flex: 1,
   },
-  QuickFactsScreenTitleLantern: {
+  QuickFactsScreenTitleFiligree: {
     color: colors.gold,
     fontFamily: fonts.sansExtraBold,
     fontSize: fontSize.title + 4,
     fontWeight: '800',
     lineHeight: 36,
   },
-  QuickFactsScreenListHarbor: {
+
+  QuickFactsScreenListChassis: {
     gap: 14,
     paddingBottom: 24,
     paddingHorizontal: 20,

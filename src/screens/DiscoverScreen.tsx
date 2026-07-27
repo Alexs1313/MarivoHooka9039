@@ -13,15 +13,15 @@ export function DiscoverScreen() {
 
   return (
     <ImageBackground
-      source={require('../assets/marivo_app_background.png')}
+      source={require('../assets/hooka-marivo-guide-app-background.png')}
       resizeMode="cover"
-      style={styles.DiscoverScreenRootTide}
+      style={styles.DiscoverScreenRootChassis}
     >
       <ScrollView
-        contentContainerStyle={styles.DiscoverScreenListHarbor}
+        contentContainerStyle={styles.DiscoverScreenListChassis}
         showsVerticalScrollIndicator={false}
       >
-        <Text style={styles.DiscoverScreenTitleLantern}>Discover</Text>
+        <Text style={styles.DiscoverScreenTitleFiligree}>Discover</Text>
 
         {ARTICLES.map(article => (
           <ArticleCard
@@ -38,17 +38,18 @@ export function DiscoverScreen() {
 }
 
 const styles = StyleSheet.create({
-  DiscoverScreenRootTide: {
+  DiscoverScreenRootChassis: {
     flex: 1,
   },
-  DiscoverScreenTitleLantern: {
+
+  DiscoverScreenTitleFiligree: {
     color: colors.gold,
     fontFamily: fonts.sansExtraBold,
     fontSize: fontSize.title + 4,
     fontWeight: '800',
     lineHeight: 36,
   },
-  DiscoverScreenListHarbor: {
+  DiscoverScreenListChassis: {
     gap: 14,
     paddingBottom: 24,
     paddingHorizontal: 20,

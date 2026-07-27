@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   FlatList,
   Image,
@@ -9,7 +9,7 @@ import {
   View,
 } from 'react-native';
 
-import {colors, fonts} from '../../constants/theme';
+import { colors, fonts } from '../../constants/theme';
 
 type DropdownProps = {
   label: string;
@@ -18,44 +18,48 @@ type DropdownProps = {
   onChange: (value: string) => void;
 };
 
-export function Dropdown({label, value, options, onChange}: DropdownProps) {
+export function Dropdown({ label, value, options, onChange }: DropdownProps) {
   const [open, setOpen] = useState(false);
 
   return (
-    <View style={styles.DropdownFieldTide}>
-      <Text style={styles.DropdownLabelDriftwood}>{label}</Text>
+    <View style={styles.DropdownFieldChassis}>
+      <Text style={styles.DropdownLabelFiligree}>{label}</Text>
 
       <Pressable
         onPress={() => setOpen(true)}
-        style={styles.DropdownTriggerHarbor}>
-        <Text style={styles.DropdownValueLantern}>{value}</Text>
+        style={styles.DropdownTriggerChassis}
+      >
+        <Text style={styles.DropdownValueFiligree}>{value}</Text>
         <Image
-          source={require('../../assets/marivo_icon_chevron_down.png')}
+          source={require('../../assets/hooka-marivo-guide-icon-chevron-down.png')}
           resizeMode="contain"
-          style={styles.DropdownChevronCompass}
+          style={styles.DropdownChevronSigil}
         />
       </Pressable>
 
       <Modal visible={open} transparent animationType="fade">
         <Pressable
-          style={styles.DropdownOverlayCurrent}
-          onPress={() => setOpen(false)}>
-          <View style={styles.DropdownSheetReef}>
+          style={styles.DropdownOverlayArt}
+          onPress={() => setOpen(false)}
+        >
+          <View style={styles.DropdownSheetChassis}>
             <FlatList
               data={options}
               keyExtractor={item => item}
-              renderItem={({item}) => (
+              renderItem={({ item }) => (
                 <Pressable
                   onPress={() => {
                     onChange(item);
                     setOpen(false);
                   }}
-                  style={styles.DropdownOptionAnchor}>
+                  style={styles.DropdownOptionPortico}
+                >
                   <Text
                     style={[
-                      styles.DropdownOptionLabelVoyage,
+                      styles.DropdownOptionLabelPortico,
                       item === value && styles.DropdownOptionLabelActiveGold,
-                    ]}>
+                    ]}
+                  >
                     {item}
                   </Text>
                 </Pressable>
@@ -69,18 +73,19 @@ export function Dropdown({label, value, options, onChange}: DropdownProps) {
 }
 
 const styles = StyleSheet.create({
-  DropdownFieldTide: {
+  DropdownFieldChassis: {
     gap: 6,
     width: '100%',
   },
-  DropdownLabelDriftwood: {
+
+  DropdownLabelFiligree: {
     color: colors.cream,
     fontFamily: fonts.sansBold,
     fontSize: 12,
     fontWeight: '700',
     textTransform: 'uppercase',
   },
-  DropdownTriggerHarbor: {
+  DropdownTriggerChassis: {
     alignItems: 'center',
     backgroundColor: colors.deepTeal,
     borderColor: 'rgba(255, 241, 181, 0.12)',
@@ -92,24 +97,26 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     width: '100%',
   },
-  DropdownValueLantern: {
+
+  DropdownValueFiligree: {
     color: colors.white,
     fontFamily: fonts.sansSemiBold,
     fontSize: 14,
     fontWeight: '600',
   },
-  DropdownChevronCompass: {
+  DropdownChevronSigil: {
     height: 8,
     width: 12,
   },
-  DropdownOverlayCurrent: {
+  DropdownOverlayArt: {
     alignItems: 'center',
     backgroundColor: 'rgba(6, 32, 36, 0.7)',
     flex: 1,
     justifyContent: 'center',
     padding: 32,
   },
-  DropdownSheetReef: {
+
+  DropdownSheetChassis: {
     backgroundColor: colors.deepTeal,
     borderColor: colors.teal,
     borderRadius: 16,
@@ -118,13 +125,15 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     width: '100%',
   },
-  DropdownOptionAnchor: {
+
+  DropdownOptionPortico: {
     borderBottomColor: 'rgba(255, 241, 181, 0.1)',
     borderBottomWidth: 1,
     paddingHorizontal: 20,
     paddingVertical: 14,
   },
-  DropdownOptionLabelVoyage: {
+
+  DropdownOptionLabelPortico: {
     color: colors.cream,
     fontFamily: fonts.sansSemiBold,
     fontSize: 15,

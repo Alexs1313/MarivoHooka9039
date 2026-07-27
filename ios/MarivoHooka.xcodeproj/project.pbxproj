@@ -281,7 +281,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.djdladfdsf.jgksjhs;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ddkjfhskdjks.djskemas;
 				PRODUCT_NAME = MarivoHooka;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -313,7 +313,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.djdladfdsf.jgksjhs;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ddkjfhskdjks.djskemas;
 				PRODUCT_NAME = MarivoHooka;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

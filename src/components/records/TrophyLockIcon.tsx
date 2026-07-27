@@ -1,37 +1,39 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
-import {colors} from '../../constants/theme';
+import { colors } from '../../constants/theme';
 
 export function TrophyLockIcon() {
   return (
-    <View style={styles.TrophyLockIconRootAnchor}>
-      <View style={styles.TrophyLockIconShackleClipReef}>
-        <View style={styles.TrophyLockIconShackleArcCompass} />
+    <View style={styles.TrophyLockIconRootPortico}>
+      <View style={styles.TrophyLockIconShackleClipChassis}>
+        <View style={styles.TrophyLockIconShackleArcSigil} />
       </View>
-      <View style={styles.TrophyLockIconBodyHull} />
+      <View style={styles.TrophyLockIconBodyFacet} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  TrophyLockIconRootAnchor: {
+  TrophyLockIconRootPortico: {
     alignItems: 'center',
   },
-  TrophyLockIconShackleClipReef: {
+  TrophyLockIconShackleClipChassis: {
     alignItems: 'center',
     height: 11,
     overflow: 'hidden',
     width: 22,
   },
-  TrophyLockIconShackleArcCompass: {
+
+  TrophyLockIconShackleArcSigil: {
     borderColor: colors.gold,
     borderRadius: 11,
     borderWidth: 2.5,
     height: 22,
     width: 22,
   },
-  TrophyLockIconBodyHull: {
+
+  TrophyLockIconBodyFacet: {
     borderColor: colors.gold,
     borderRadius: 5,
     borderWidth: 2.5,

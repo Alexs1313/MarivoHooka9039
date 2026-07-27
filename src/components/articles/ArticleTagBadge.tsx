@@ -1,29 +1,30 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
-import {colors, fonts} from '../../constants/theme';
+import { colors, fonts } from '../../constants/theme';
 
 type ArticleTagBadgeProps = {
   label: string;
 };
 
-export function ArticleTagBadge({label}: ArticleTagBadgeProps) {
+export function ArticleTagBadge({ label }: ArticleTagBadgeProps) {
   return (
-    <View style={styles.ArticleTagBadgePillReef}>
-      <Text style={styles.ArticleTagBadgeLabelReef}>{label}</Text>
+    <View style={styles.ArticleTagBadgePillChassis}>
+      <Text style={styles.ArticleTagBadgeLabelChassis}>{label}</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  ArticleTagBadgePillReef: {
+  ArticleTagBadgePillChassis: {
     alignSelf: 'flex-start',
     backgroundColor: colors.teal,
     borderRadius: 6,
     paddingHorizontal: 8,
     paddingVertical: 2,
   },
-  ArticleTagBadgeLabelReef: {
+
+  ArticleTagBadgeLabelChassis: {
     color: colors.white,
     fontFamily: fonts.sansBold,
     fontSize: 11,

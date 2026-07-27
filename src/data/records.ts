@@ -16,7 +16,7 @@ export const TROPHY_RECORDS: TrophyRecord[] = [
     title: 'The Giant Whale',
     weight: 'Up to 190,000 kg',
     length: 'Over 30 meters',
-    image: require('../assets/TheGiantWhale.png'),
+    image: require('../assets/hooka-marivo-guide-the-giant-whale.png'),
     pointsRequired: 0,
     paragraphs: [
       'The blue whale is the largest animal ever known to exist on Earth. Historical whaling expeditions occasionally encountered these enormous giants while traveling across the oceans. Their immense size inspired stories and legends among sailors.',
@@ -28,7 +28,7 @@ export const TROPHY_RECORDS: TrophyRecord[] = [
     title: 'The Colossal Whale Shark',
     weight: 'Up to 21,000 kg',
     length: 'Over 18 meters',
-    image: require('../assets/TheColossalWhaleShark.png'),
+    image: require('../assets/hooka-marivo-guide-the-colossal-whale-shark.png'),
     pointsRequired: 0,
     paragraphs: [
       'The whale shark is the largest fish species in the world. Despite its impressive size, it feeds mainly on plankton and poses little threat to humans. Its enormous body and distinctive spotted pattern make it one of the most recognizable fish in the ocean.',
@@ -40,7 +40,7 @@ export const TROPHY_RECORDS: TrophyRecord[] = [
     title: 'The Legendary Great White',
     weight: 'Up to 2,500 kg',
     length: 'Over 6 meters',
-    image: require('../assets/TheLegendaryGreatWhite.png'),
+    image: require('../assets/hooka-marivo-guide-the-legendary-great-white.png'),
     pointsRequired: 0,
     paragraphs: [
       "The great white shark is one of the ocean's most famous predators. Throughout history, exceptionally large individuals have become the subject of countless stories among fishermen and sailors.",
@@ -52,7 +52,7 @@ export const TROPHY_RECORDS: TrophyRecord[] = [
     title: 'The Monster Mekong Catfish',
     weight: 'Up to 350 kg',
     length: 'Up to 3 meters',
-    image: require('../assets/TheMonsterMekongCatfish.png'),
+    image: require('../assets/hooka-marivo-guide-the-monster-mekong-catfish.png'),
     pointsRequired: 20,
     paragraphs: [
       'The Mekong giant catfish is one of the largest freshwater fish ever recorded. Native to Southeast Asia, it can reach extraordinary sizes and weights.',
@@ -64,7 +64,7 @@ export const TROPHY_RECORDS: TrophyRecord[] = [
     title: 'The Giant Wels Catfish',
     weight: 'Up to 300 kg',
     length: 'Over 2.7 meters',
-    image: require('../assets/TheGiantWelsCatfish.png'),
+    image: require('../assets/hooka-marivo-guide-the-giant-wels-catfish.png'),
     pointsRequired: 25,
     paragraphs: [
       'The Wels catfish inhabits many rivers and lakes throughout Europe. Some specimens grow to astonishing sizes, becoming true giants of freshwater ecosystems.',
@@ -76,7 +76,7 @@ export const TROPHY_RECORDS: TrophyRecord[] = [
     title: 'The Record Northern Pike',
     weight: 'Up to 35 kg',
     length: 'Over 1.5 meters',
-    image: require('../assets/TheRecordNorthernPike.png'),
+    image: require('../assets/hooka-marivo-guide-the-record-northern-pike.png'),
     pointsRequired: 30,
     paragraphs: [
       'The northern pike is known for its speed, sharp teeth, and ambush hunting style. Large specimens are among the most prized catches in many freshwater regions.',
@@ -88,7 +88,7 @@ export const TROPHY_RECORDS: TrophyRecord[] = [
     title: 'The Giant Common Carp',
     weight: 'Up to 51 kg',
     length: 'Over 1.2 meters',
-    image: require('../assets/TheGiantCommonCarp.png'),
+    image: require('../assets/hooka-marivo-guide-the-giant-common-carp.png'),
     pointsRequired: 35,
     paragraphs: [
       'Carp have been cultivated and admired for centuries across Europe and Asia. While many remain modest in size, some individuals grow into true freshwater giants.',
@@ -100,7 +100,7 @@ export const TROPHY_RECORDS: TrophyRecord[] = [
     title: 'The Massive Sturgeon',
     weight: 'Up to 1,500 kg',
     length: 'Over 7 meters',
-    image: require('../assets/TheMassiveSturgeon.png'),
+    image: require('../assets/hooka-marivo-guide-the-massive-sturgeon.png'),
     pointsRequired: 40,
     paragraphs: [
       'Sturgeons are among the oldest fish species still living today. These ancient fish have existed since the time of dinosaurs and can grow to extraordinary sizes.',
@@ -112,7 +112,7 @@ export const TROPHY_RECORDS: TrophyRecord[] = [
     title: 'The Giant Tuna',
     weight: 'Up to 700 kg',
     length: 'Over 4 meters',
-    image: require('../assets/TheGiantTuna.png'),
+    image: require('../assets/hooka-marivo-guide-the-giant-tuna.png'),
     pointsRequired: 45,
     paragraphs: [
       'Bluefin tuna are powerful ocean swimmers capable of traveling vast distances. Their speed, strength, and size have made them legendary among fishermen.',
@@ -124,7 +124,7 @@ export const TROPHY_RECORDS: TrophyRecord[] = [
     title: 'The Enormous Arapaima',
     weight: 'Up to 220 kg',
     length: 'Over 3 meters',
-    image: require('../assets/TheEnormousArapaima.png'),
+    image: require('../assets/hooka-marivo-guide-the-enormous-arapaima.png'),
     pointsRequired: 50,
     paragraphs: [
       'The arapaima is one of the largest freshwater fish in the world and lives in the Amazon Basin. Its massive scales and powerful body help it thrive in tropical waters.',

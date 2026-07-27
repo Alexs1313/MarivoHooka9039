@@ -11,10 +11,13 @@ import {
 
 import { PrimaryButton } from '../components/buttons/PrimaryButton';
 import { ArticleTagBadge } from '../components/articles/ArticleTagBadge';
+
 import { colors, fonts, fontSize } from '../constants/theme';
 import { useArticles } from '../context/ArticlesContext';
 import { getArticleById } from '../data/articles';
+
 import { useNavigation } from '../navigation/NavigationContext';
+
 import { shareText } from '../utils/share';
 
 type ArticleDetailScreenProps = {
@@ -36,78 +39,76 @@ export function ArticleDetailScreen({ articleId }: ArticleDetailScreenProps) {
 
   return (
     <ImageBackground
-      source={require('../assets/marivo_app_background.png')}
+      source={require('../assets/hooka-marivo-guide-app-background.png')}
       resizeMode="cover"
-      style={styles.ArticleDetailScreenRootTide}
+      style={styles.ArticleDetailScreenRootChassis}
     >
       <ScrollView
-        contentContainerStyle={styles.ArticleDetailScreenContentHarbor}
+        contentContainerStyle={styles.ArticleDetailScreenContentChassis}
         showsVerticalScrollIndicator={false}
       >
-        <View style={styles.ArticleDetailScreenHeaderLintel}>
+        <View style={styles.ArticleDetailScreenHeaderArt}>
           <Pressable hitSlop={8} onPress={closeOverlay}>
-            <Text style={styles.ArticleDetailScreenBackArrowAnchor}>←</Text>
+            <Text style={styles.ArticleDetailScreenBackArrowPortico}>←</Text>
           </Pressable>
-          <Text style={styles.ArticleDetailScreenHeaderLabelLantern}>
+          <Text style={styles.ArticleDetailScreenHeaderLabelFiligree}>
             Article
           </Text>
-          <View style={styles.ArticleDetailScreenHeaderSpacerHorizon} />
+          <View style={styles.ArticleDetailScreenHeaderSpacerFiligree} />
           <Pressable hitSlop={8} onPress={() => toggleSaved(article.id)}>
             <Image
               source={
                 saved
-                  ? require('../assets/marivo_icon_heart_filled.png')
-                  : require('../assets/marivo_icon_heart_outline.png')
+                  ? require('../assets/hooka-marivo-guide-icon-heart-filled.png')
+                  : require('../assets/hooka-marivo-guide-icon-heart-outline.png')
               }
               resizeMode="contain"
-              style={styles.ArticleDetailScreenHeaderIconCompass}
+              style={styles.ArticleDetailScreenHeaderIconSigil}
             />
           </Pressable>
           <Pressable
             hitSlop={8}
-            style={styles.ArticleDetailScreenShareButtonAnchor}
+            style={styles.ArticleDetailScreenShareButtonPortico}
             onPress={() =>
-              shareText(article.title, `${article.title}\n\n${article.paragraphs.join('\n\n')}`)
+              shareText(
+                article.title,
+                `${article.title}\n\n${article.paragraphs.join('\n\n')}`,
+              )
             }
           >
             <Image
-              source={require('../assets/marivo_icon_share.png')}
+              source={require('../assets/hooka-marivo-guide-icon-share.png')}
               resizeMode="contain"
-              style={styles.ArticleDetailScreenHeaderIconCompass}
+              style={styles.ArticleDetailScreenHeaderIconSigil}
             />
           </Pressable>
         </View>
 
-        <View style={styles.ArticleDetailScreenHeroReef}>
+        <View style={styles.ArticleDetailScreenHeroChassis}>
           {article.hero ? (
             <Image
               source={article.hero}
               resizeMode="cover"
-              style={styles.ArticleDetailScreenHeroImageCurrent}
+              style={styles.ArticleDetailScreenHeroImageArt}
             />
-          ) : (
-            <View style={styles.ArticleDetailScreenHeroPlaceholderFathom} />
-          )}
+          ) : null}
         </View>
 
-        <View style={styles.ArticleDetailScreenBadgeRowHorizon}>
+        <View style={styles.ArticleDetailScreenBadgeRowFiligree}>
           <ArticleTagBadge label={article.period} />
         </View>
 
-        <Text style={styles.ArticleDetailScreenTitleLantern}>
+        <Text style={styles.ArticleDetailScreenTitleFiligree}>
           {article.title}
         </Text>
 
         {article.paragraphs.map((paragraph, index) => (
-          <Text
-            key={index}
-            style={styles.ArticleDetailScreenParagraphDriftwood}
-          >
+          <Text key={index} style={styles.ArticleDetailScreenParagraphFiligree}>
             {paragraph}
           </Text>
         ))}
 
-        <View style={styles.ArticleDetailScreenButtonWrapVoyage}>
+        <View style={styles.ArticleDetailScreenButtonWrapPortico}>
           <PrimaryButton
             label={read ? 'Marked As Read' : 'Mark As Read'}
             variant="green"
@@ -120,42 +121,46 @@ export function ArticleDetailScreen({ articleId }: ArticleDetailScreenProps) {
 }
 
 const styles = StyleSheet.create({
-  ArticleDetailScreenRootTide: {
+  ArticleDetailScreenRootChassis: {
     flex: 1,
   },
-  ArticleDetailScreenHeaderLintel: {
+  ArticleDetailScreenHeaderArt: {
     alignItems: 'center',
     flexDirection: 'row',
     gap: 10,
     marginBottom: 12,
   },
-  ArticleDetailScreenBackArrowAnchor: {
+
+  ArticleDetailScreenBackArrowPortico: {
     color: colors.gold,
     fontSize: 22,
     padding: 6,
   },
-  ArticleDetailScreenHeaderLabelLantern: {
+  ArticleDetailScreenHeaderLabelFiligree: {
     color: colors.gold,
     fontFamily: fonts.sansBold,
     fontSize: 17,
     fontWeight: '700',
   },
-  ArticleDetailScreenHeaderSpacerHorizon: {
+
+  ArticleDetailScreenHeaderSpacerFiligree: {
     flex: 1,
   },
-  ArticleDetailScreenShareButtonAnchor: {
+  ArticleDetailScreenShareButtonPortico: {
     marginLeft: 4,
   },
-  ArticleDetailScreenHeaderIconCompass: {
+
+  ArticleDetailScreenHeaderIconSigil: {
     height: 20,
     width: 20,
   },
-  ArticleDetailScreenContentHarbor: {
+
+  ArticleDetailScreenContentChassis: {
     paddingBottom: 32,
     paddingHorizontal: 20,
     paddingTop: 54,
   },
-  ArticleDetailScreenHeroReef: {
+  ArticleDetailScreenHeroChassis: {
     alignItems: 'center',
     backgroundColor: colors.deepTeal,
     borderRadius: 16,
@@ -164,21 +169,16 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     width: '100%',
   },
-  ArticleDetailScreenHeroImageCurrent: {
+
+  ArticleDetailScreenHeroImageArt: {
     height: '100%',
     width: '100%',
   },
-  ArticleDetailScreenHeroPlaceholderFathom: {
-    backgroundColor: colors.teal,
-    borderRadius: 20,
-    height: 40,
-    opacity: 0.28,
-    width: 40,
-  },
-  ArticleDetailScreenBadgeRowHorizon: {
+  ArticleDetailScreenBadgeRowFiligree: {
     marginTop: 14,
   },
-  ArticleDetailScreenTitleLantern: {
+
+  ArticleDetailScreenTitleFiligree: {
     color: colors.gold,
     fontFamily: fonts.sansExtraBold,
     fontSize: fontSize.title + 2,
@@ -186,14 +186,15 @@ const styles = StyleSheet.create({
     lineHeight: 33,
     marginTop: 10,
   },
-  ArticleDetailScreenParagraphDriftwood: {
+  ArticleDetailScreenParagraphFiligree: {
     color: colors.cream,
     fontFamily: fonts.sansRegular,
     fontSize: fontSize.body,
     lineHeight: 24,
     marginTop: 14,
   },
-  ArticleDetailScreenButtonWrapVoyage: {
+
+  ArticleDetailScreenButtonWrapPortico: {
     marginTop: 24,
   },
 });

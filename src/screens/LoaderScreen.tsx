@@ -16,26 +16,21 @@ export function LoaderScreen() {
 
   return (
     <ImageBackground
-      source={require('../assets/marivo_loader_bg.png')}
+      source={require('../assets/hooka-marivo-guide-loader-bg.png')}
       resizeMode="cover"
-      style={styles.LoaderScreenRootTide}
+      style={styles.LoaderScreenRootChassis}
     >
-      <LoaderSpinner size={40} style={styles.LoaderScreenSpinnerCurrent} />
+      <LoaderSpinner size={40} style={styles.LoaderScreenSpinnerArt} />
     </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  LoaderScreenRootTide: {
+  LoaderScreenRootChassis: {
     alignItems: 'center',
     flex: 1,
   },
-  LoaderScreenLogoAnchor: {
-    height: 110,
-    marginTop: '9%',
-    width: 260,
-  },
-  LoaderScreenSpinnerCurrent: {
+  LoaderScreenSpinnerArt: {
     bottom: 48,
     position: 'absolute',
   },

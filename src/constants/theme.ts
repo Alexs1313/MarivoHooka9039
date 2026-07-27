@@ -1,8 +1,9 @@
-import {Platform} from 'react-native';
+import { Platform } from 'react-native';
 
-import {fonts} from './fonts';
+import { fonts } from './fonts';
 
 export const DESIGN_WIDTH = 393;
+
 export const DESIGN_HEIGHT = 852;
 
 export const colors = {
@@ -54,4 +55,4 @@ export const layout = {
 export const topInset = (value: number) =>
   Platform.OS === 'android' ? Math.max(value, 30) : value;
 
-export {fonts};
+export { fonts };

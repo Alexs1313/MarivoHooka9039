@@ -10,9 +10,9 @@ workflows:
       vars:
         XCODE_WORKSPACE: 'MarivoHooka.xcworkspace' # <----
         XCODE_SCHEME: 'MarivoHooka' # <----
-        BUNDLE_ID: 'com.djdladfdsf.jgksjhs' # <----
-        APP_STORE_APP_ID: 6793622425 # <----
-        APP_STORE_CONNECT_KEY_ID: 'Z8NK4R4V3Q' # <----
+        BUNDLE_ID: 'com.ddkjfhskdjks.djskemas' # <----
+        APP_STORE_APP_ID: 6795056416 # <----
+        APP_STORE_CONNECT_KEY_ID: '2VB896T3ZD' # <----
         APP_STORE_CONNECT_ISSUER_ID: '65338812-60bc-4faf-92c2-de009ee60feb' # <----
         node: latest
         xcode: latest

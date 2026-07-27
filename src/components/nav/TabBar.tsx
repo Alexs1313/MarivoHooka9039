@@ -5,12 +5,30 @@ import { colors } from '../../constants/theme';
 import type { MainTab } from '../../navigation/types';
 
 const TAB_ITEMS: { tab: MainTab; icon: number }[] = [
-  { tab: 'Discover', icon: require('../../assets/marivo_icon_tab_book.png') },
-  { tab: 'Map', icon: require('../../assets/marivo_icon_tab_pin.png') },
-  { tab: 'Catches', icon: require('../../assets/marivo_icon_tab_hook.png') },
-  { tab: 'Quiz', icon: require('../../assets/marivo_icon_tab_question.png') },
-  { tab: 'Records', icon: require('../../assets/marivo_icon_tab_trophy.png') },
-  { tab: 'Extras', icon: require('../../assets/marivo_icon_tab_sparkle.png') },
+  {
+    tab: 'Discover',
+    icon: require('../../assets/hooka-marivo-guide-icon-tab-book.png'),
+  },
+  {
+    tab: 'Map',
+    icon: require('../../assets/hooka-marivo-guide-icon-tab-pin.png'),
+  },
+  {
+    tab: 'Catches',
+    icon: require('../../assets/hooka-marivo-guide-icon-tab-hook.png'),
+  },
+  {
+    tab: 'Quiz',
+    icon: require('../../assets/hooka-marivo-guide-icon-tab-question.png'),
+  },
+  {
+    tab: 'Records',
+    icon: require('../../assets/hooka-marivo-guide-icon-tab-trophy.png'),
+  },
+  {
+    tab: 'Extras',
+    icon: require('../../assets/hooka-marivo-guide-icon-tab-sparkle.png'),
+  },
 ];
 
 type TabBarProps = {
@@ -20,19 +38,19 @@ type TabBarProps = {
 
 export function TabBar({ activeTab, onSelect }: TabBarProps) {
   return (
-    <View style={styles.TabBarRootHarbor}>
+    <View style={styles.TabBarRootChassis}>
       {TAB_ITEMS.map(item => (
         <Pressable
           key={item.tab}
           hitSlop={8}
           onPress={() => onSelect(item.tab)}
-          style={styles.TabBarButtonAnchor}
+          style={styles.TabBarButtonPortico}
         >
           <Image
             source={item.icon}
             resizeMode="contain"
             style={[
-              styles.TabBarIconCompass,
+              styles.TabBarIconSigil,
               {
                 tintColor: item.tab === activeTab ? colors.gold : colors.cream,
                 opacity: item.tab === activeTab ? 1 : 0.55,
@@ -46,7 +64,7 @@ export function TabBar({ activeTab, onSelect }: TabBarProps) {
 }
 
 const styles = StyleSheet.create({
-  TabBarRootHarbor: {
+  TabBarRootChassis: {
     alignItems: 'center',
     backgroundColor: colors.deepTeal,
     borderTopColor: 'rgba(30, 183, 200, 0.18)',
@@ -56,12 +74,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     paddingBottom: 15,
   },
-  TabBarButtonAnchor: {
+
+  TabBarButtonPortico: {
     alignItems: 'center',
     justifyContent: 'center',
     padding: 6,
   },
-  TabBarIconCompass: {
+  TabBarIconSigil: {
     height: 22,
     width: 22,
   },

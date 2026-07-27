@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, { useEffect, useRef } from 'react';
 import {
   Animated,
   Easing,
@@ -8,14 +8,14 @@ import {
   ViewStyle,
 } from 'react-native';
 
-import {colors} from '../../constants/theme';
+import { colors } from '../../constants/theme';
 
 type LoaderSpinnerProps = {
   size?: number;
   style?: StyleProp<ViewStyle>;
 };
 
-export function LoaderSpinner({size = 36, style}: LoaderSpinnerProps) {
+export function LoaderSpinner({ size = 36, style }: LoaderSpinnerProps) {
   const rotation = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
@@ -39,28 +39,27 @@ export function LoaderSpinner({size = 36, style}: LoaderSpinnerProps) {
   return (
     <Animated.View
       style={[
-        styles.LoaderSpinnerRootAnchor,
-        {height: size, transform: [{rotate}], width: size},
+        styles.LoaderSpinnerRootPortico,
+        { height: size, transform: [{ rotate }], width: size },
         style,
-      ]}>
+      ]}
+    >
       <Image
-        source={require('../../assets/marivo_icon_tab_hook.png')}
+        source={require('../../assets/hooka-marivo-guide-icon-tab-hook.png')}
         resizeMode="contain"
-        style={[
-          styles.LoaderSpinnerIconCurrent,
-          {tintColor: colors.gold},
-        ]}
+        style={[styles.LoaderSpinnerIconArt, { tintColor: colors.gold }]}
       />
     </Animated.View>
   );
 }
 
 const styles = StyleSheet.create({
-  LoaderSpinnerRootAnchor: {
+  LoaderSpinnerRootPortico: {
     alignItems: 'center',
     justifyContent: 'center',
   },
-  LoaderSpinnerIconCurrent: {
+
+  LoaderSpinnerIconArt: {
     height: '100%',
     width: '100%',
   },

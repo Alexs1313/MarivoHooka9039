@@ -1,23 +1,23 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
-import {colors, radius} from '../../constants/theme';
+import { colors, radius } from '../../constants/theme';
 
 type PaginationDotsProps = {
   count: number;
   activeIndex: number;
 };
 
-export function PaginationDots({count, activeIndex}: PaginationDotsProps) {
+export function PaginationDots({ count, activeIndex }: PaginationDotsProps) {
   return (
-    <View style={styles.PaginationDotsRootHarbor}>
-      {Array.from({length: count}).map((_, index) => (
+    <View style={styles.PaginationDotsRootChassis}>
+      {Array.from({ length: count }).map((_, index) => (
         <View
           key={index}
           style={
             index === activeIndex
-              ? styles.PaginationDotsActiveCompass
-              : styles.PaginationDotsInactiveCompass
+              ? styles.PaginationDotsActiveSigil
+              : styles.PaginationDotsInactiveSigil
           }
         />
       ))}
@@ -26,19 +26,20 @@ export function PaginationDots({count, activeIndex}: PaginationDotsProps) {
 }
 
 const styles = StyleSheet.create({
-  PaginationDotsRootHarbor: {
+  PaginationDotsRootChassis: {
     alignItems: 'center',
     flexDirection: 'row',
     gap: 7,
     justifyContent: 'center',
   },
-  PaginationDotsActiveCompass: {
+  PaginationDotsActiveSigil: {
     backgroundColor: colors.gold,
     borderRadius: radius.pill,
     height: 7,
     width: 22,
   },
-  PaginationDotsInactiveCompass: {
+
+  PaginationDotsInactiveSigil: {
     backgroundColor: colors.dotInactive,
     borderRadius: radius.pill,
     height: 7,

@@ -21,9 +21,9 @@ export function OnboardingScreen() {
 
   return (
     <ImageBackground
-      source={require('../assets/marivo_app_background.png')}
+      source={require('../assets/hooka-marivo-guide-app-background.png')}
       resizeMode="cover"
-      style={styles.OnboardingScreenRootTide}
+      style={styles.OnboardingScreenRootChassis}
     >
       <ScrollView
         contentContainerStyle={{
@@ -34,35 +34,37 @@ export function OnboardingScreen() {
         }}
         showsVerticalScrollIndicator={false}
       >
-        <View style={styles.OnboardingScreenHeroReef}>
+        <View style={styles.OnboardingScreenHeroChassis}>
           <Image
             source={slide.hero}
             resizeMode="cover"
-            style={styles.OnboardingScreenHeroImageCurrent}
+            style={styles.OnboardingScreenHeroImageArt}
           />
         </View>
 
-        <View style={styles.OnboardingScreenDotsHarbor}>
+        <View style={styles.OnboardingScreenDotsChassis}>
           <PaginationDots
             count={onboardingStepCount}
             activeIndex={onboardingStep}
           />
         </View>
 
-        <View style={styles.OnboardingScreenBadgeRowFathom}>
-          <View style={styles.OnboardingScreenBadgeAnchor}>
+        <View style={styles.OnboardingScreenBadgeRowFiligree}>
+          <View style={styles.OnboardingScreenBadgePortico}>
             <Image
               source={slide.icon}
               resizeMode="contain"
-              style={styles.OnboardingScreenBadgeIconLantern}
+              style={styles.OnboardingScreenBadgeIconFiligree}
             />
           </View>
-          <Text style={styles.OnboardingScreenTitleLantern}>{slide.title}</Text>
+          <Text style={styles.OnboardingScreenTitleFiligree}>
+            {slide.title}
+          </Text>
         </View>
 
-        <Text style={styles.OnboardingScreenBodyDriftwood}>{slide.body}</Text>
+        <Text style={styles.OnboardingScreenBodyFiligree}>{slide.body}</Text>
 
-        <View style={styles.OnboardingScreenSpacerHorizon} />
+        <View style={styles.OnboardingScreenSpacerFiligree} />
 
         <PrimaryButton label={slide.buttonLabel} onPress={advanceOnboarding} />
       </ScrollView>
@@ -71,10 +73,11 @@ export function OnboardingScreen() {
 }
 
 const styles = StyleSheet.create({
-  OnboardingScreenRootTide: {
+  OnboardingScreenRootChassis: {
     flex: 1,
   },
-  OnboardingScreenHeroReef: {
+
+  OnboardingScreenHeroChassis: {
     alignSelf: 'center',
     backgroundColor: colors.deepTeal,
     borderRadius: radius.card,
@@ -82,20 +85,23 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     width: layout.heroSize,
   },
-  OnboardingScreenHeroImageCurrent: {
+
+  OnboardingScreenHeroImageArt: {
     height: '100%',
     width: '100%',
   },
-  OnboardingScreenDotsHarbor: {
+  OnboardingScreenDotsChassis: {
     marginTop: 24,
   },
-  OnboardingScreenBadgeRowFathom: {
+
+  OnboardingScreenBadgeRowFiligree: {
     alignItems: 'center',
     flexDirection: 'row',
     gap: 12,
     marginTop: 28,
   },
-  OnboardingScreenBadgeAnchor: {
+
+  OnboardingScreenBadgePortico: {
     alignItems: 'center',
     backgroundColor: colors.teal,
     borderRadius: radius.badge,
@@ -108,11 +114,11 @@ const styles = StyleSheet.create({
     elevation: 4,
     width: 48,
   },
-  OnboardingScreenBadgeIconLantern: {
+  OnboardingScreenBadgeIconFiligree: {
     height: 24,
     width: 24,
   },
-  OnboardingScreenTitleLantern: {
+  OnboardingScreenTitleFiligree: {
     color: colors.gold,
     flexShrink: 1,
     fontFamily: fonts.sansExtraBold,
@@ -120,7 +126,8 @@ const styles = StyleSheet.create({
     fontWeight: '800',
     lineHeight: 26,
   },
-  OnboardingScreenBodyDriftwood: {
+
+  OnboardingScreenBodyFiligree: {
     color: colors.cream,
     fontFamily: fonts.sansRegular,
     fontSize: fontSize.body,
@@ -128,7 +135,7 @@ const styles = StyleSheet.create({
     marginTop: 12,
     opacity: 0.85,
   },
-  OnboardingScreenSpacerHorizon: {
+  OnboardingScreenSpacerFiligree: {
     flex: 1,
   },
 });

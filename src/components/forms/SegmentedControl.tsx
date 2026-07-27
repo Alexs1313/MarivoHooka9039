@@ -1,7 +1,7 @@
 import React from 'react';
-import {Pressable, StyleSheet, Text, View} from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 
-import {colors, fonts} from '../../constants/theme';
+import { colors, fonts } from '../../constants/theme';
 
 type SegmentedControlProps = {
   options: readonly string[];
@@ -15,7 +15,7 @@ export function SegmentedControl({
   onChange,
 }: SegmentedControlProps) {
   return (
-    <View style={styles.SegmentedControlRootHarbor}>
+    <View style={styles.SegmentedControlRootChassis}>
       {options.map(option => {
         const active = option === value;
         return (
@@ -23,14 +23,16 @@ export function SegmentedControl({
             key={option}
             onPress={() => onChange(option)}
             style={[
-              styles.SegmentedControlSegmentAnchor,
+              styles.SegmentedControlSegmentPortico,
               active && styles.SegmentedControlSegmentActiveTeal,
-            ]}>
+            ]}
+          >
             <Text
               style={[
-                styles.SegmentedControlLabelDriftwood,
-                active && styles.SegmentedControlLabelActiveVoyage,
-              ]}>
+                styles.SegmentedControlLabelFiligree,
+                active && styles.SegmentedControlLabelActivePortico,
+              ]}
+            >
               {option}
             </Text>
           </Pressable>
@@ -41,7 +43,7 @@ export function SegmentedControl({
 }
 
 const styles = StyleSheet.create({
-  SegmentedControlRootHarbor: {
+  SegmentedControlRootChassis: {
     backgroundColor: '#06353e',
     borderRadius: 12,
     flexDirection: 'row',
@@ -49,22 +51,24 @@ const styles = StyleSheet.create({
     padding: 4,
     width: '100%',
   },
-  SegmentedControlSegmentAnchor: {
+  SegmentedControlSegmentPortico: {
     alignItems: 'center',
     borderRadius: 8,
     flex: 1,
     paddingVertical: 8,
   },
+
   SegmentedControlSegmentActiveTeal: {
     backgroundColor: colors.teal,
   },
-  SegmentedControlLabelDriftwood: {
+  SegmentedControlLabelFiligree: {
     color: 'rgba(255, 241, 181, 0.5)',
     fontFamily: fonts.sansSemiBold,
     fontSize: 12,
     fontWeight: '600',
   },
-  SegmentedControlLabelActiveVoyage: {
+
+  SegmentedControlLabelActivePortico: {
     color: colors.white,
   },
 });

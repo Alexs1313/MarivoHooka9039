@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import {
   Image,
   ImageBackground,
@@ -12,8 +13,10 @@ import {
 
 import { ArticleTagBadge } from '../components/articles/ArticleTagBadge';
 import { PrimaryButton } from '../components/buttons/PrimaryButton';
+
 import { colors, fonts, fontSize, layout } from '../constants/theme';
 import { useQuiz } from '../context/QuizContext';
+
 import { getArticleById } from '../data/articles';
 import {
   buildQuizSession,
@@ -75,43 +78,43 @@ export function QuizScreen() {
 
   return (
     <ImageBackground
-      source={require('../assets/marivo_app_background.png')}
+      source={require('../assets/hooka-marivo-guide-app-background.png')}
       resizeMode="cover"
-      style={styles.QuizScreenRootTide}
+      style={styles.QuizScreenRootChassis}
     >
       <ScrollView
         contentContainerStyle={{ flexGrow: 1 }}
         showsVerticalScrollIndicator={false}
       >
-        <View style={styles.QuizScreenHeaderLintel}>
-          <Text style={styles.QuizScreenHeaderTitleLantern}>Quiz</Text>
+        <View style={styles.QuizScreenHeaderArt}>
+          <Text style={styles.QuizScreenHeaderTitleFiligree}>Quiz</Text>
           {phase === 'question' && (
             <Pressable hitSlop={8} onPress={() => setLeaveModalVisible(true)}>
               <Image
-                source={require('../assets/marivo_icon_close.png')}
+                source={require('../assets/hooka-marivo-guide-icon-close.png')}
                 resizeMode="contain"
-                style={styles.QuizScreenHeaderCloseIconCompass}
+                style={styles.QuizScreenHeaderCloseIconSigil}
               />
             </Pressable>
           )}
         </View>
 
         {phase === 'intro' && (
-          <View style={styles.QuizScreenIntroContentHarbor}>
-            <View style={styles.QuizScreenMascotBadgeAnchor}>
+          <View style={styles.QuizScreenIntroContentChassis}>
+            <View style={styles.QuizScreenMascotBadgePortico}>
               <Image
-                source={require('../assets/marivo_icon_question.png')}
+                source={require('../assets/hooka-marivo-guide-icon-question.png')}
                 resizeMode="contain"
-                style={styles.QuizScreenMascotIconLantern}
+                style={styles.QuizScreenMascotIconFiligree}
               />
             </View>
-            <Text style={styles.QuizScreenIntroTitleLantern}>
+            <Text style={styles.QuizScreenIntroTitleFiligree}>
               Test Your Knowledge
             </Text>
-            <Text style={styles.QuizScreenIntroBodyDriftwood}>
+            <Text style={styles.QuizScreenIntroBodyFiligree}>
               {`Answer questions inspired by the articles on fishing history. ${QUIZ_TOPICS.length} questions total — see how many you can get right!`}
             </Text>
-            <View style={styles.QuizScreenIntroButtonWrapVoyage}>
+            <View style={styles.QuizScreenIntroButtonWrapPortico}>
               <PrimaryButton label="Start Quiz" onPress={startQuiz} />
             </View>
           </View>
@@ -119,32 +122,30 @@ export function QuizScreen() {
 
         {phase === 'question' && currentQuestion && (
           <ScrollView
-            contentContainerStyle={styles.QuizScreenQuestionContentHarbor}
+            contentContainerStyle={styles.QuizScreenQuestionContentChassis}
             showsVerticalScrollIndicator={false}
           >
-            <View style={styles.QuizScreenProgressRowHorizon}>
+            <View style={styles.QuizScreenProgressRowFiligree}>
               <ArticleTagBadge
                 label={`${currentIndex + 1} / ${sessionQuestions.length}`}
               />
             </View>
 
-            <Text style={styles.QuizScreenQuestionPromptLantern}>
+            <Text style={styles.QuizScreenQuestionPromptFiligree}>
               {currentQuestion.question}
             </Text>
 
-            <View style={styles.QuizScreenHeroReef}>
+            <View style={styles.QuizScreenHeroChassis}>
               {currentArticle?.hero ? (
                 <Image
                   source={currentArticle.hero}
                   resizeMode="cover"
-                  style={styles.QuizScreenHeroImageCurrent}
+                  style={styles.QuizScreenHeroImageArt}
                 />
-              ) : (
-                <View style={styles.QuizScreenHeroPlaceholderFathom} />
-              )}
+              ) : null}
             </View>
 
-            <View style={styles.QuizScreenOptionsColFathom}>
+            <View style={styles.QuizScreenOptionsColFiligree}>
               {currentQuestion.options.map(option => (
                 <QuizOptionRow
                   key={option}
@@ -157,7 +158,7 @@ export function QuizScreen() {
             </View>
 
             {selectedAnswer && (
-              <View style={styles.QuizScreenNextButtonWrapVoyage}>
+              <View style={styles.QuizScreenNextButtonWrapPortico}>
                 <PrimaryButton
                   label="Next Question"
                   onPress={goToNextQuestion}
@@ -168,41 +169,41 @@ export function QuizScreen() {
         )}
 
         {phase === 'complete' && (
-          <View style={styles.QuizScreenIntroContentHarbor}>
-            <View style={styles.QuizScreenMascotBadgeAnchor}>
+          <View style={styles.QuizScreenIntroContentChassis}>
+            <View style={styles.QuizScreenMascotBadgePortico}>
               <Image
-                source={require('../assets/marivo_icon_trophy.png')}
+                source={require('../assets/hooka-marivo-guide-icon-trophy.png')}
                 resizeMode="contain"
-                style={styles.QuizScreenMascotIconLantern}
+                style={styles.QuizScreenMascotIconFiligree}
               />
             </View>
-            <Text style={styles.QuizScreenIntroTitleLantern}>
+            <Text style={styles.QuizScreenIntroTitleFiligree}>
               Quiz Complete!
             </Text>
-            <Text style={styles.QuizScreenIntroBodyDriftwood}>
+            <Text style={styles.QuizScreenIntroBodyFiligree}>
               {`You scored ${score} out of ${sessionQuestions.length}`}
             </Text>
-            <View style={styles.QuizScreenIntroButtonWrapVoyage}>
+            <View style={styles.QuizScreenIntroButtonWrapPortico}>
               <PrimaryButton label="Restart Quiz" onPress={startQuiz} />
             </View>
           </View>
         )}
 
         <Modal visible={leaveModalVisible} transparent animationType="fade">
-          <View style={styles.QuizScreenLeaveOverlayCurrent}>
-            <View style={styles.QuizScreenLeaveCardReef}>
-              <Text style={styles.QuizScreenLeaveTitleLantern}>
+          <View style={styles.QuizScreenLeaveOverlayArt}>
+            <View style={styles.QuizScreenLeaveCardChassis}>
+              <Text style={styles.QuizScreenLeaveTitleFiligree}>
                 Leave Quiz?
               </Text>
-              <Text style={styles.QuizScreenLeaveBodyDriftwood}>
+              <Text style={styles.QuizScreenLeaveBodyFiligree}>
                 Your current progress will be lost.
               </Text>
-              <View style={styles.QuizScreenLeaveButtonRowHorizon}>
+              <View style={styles.QuizScreenLeaveButtonRowFiligree}>
                 <Pressable
                   onPress={() => setLeaveModalVisible(false)}
                   style={[
-                    styles.QuizScreenLeaveButtonAnchor,
-                    styles.QuizScreenLeaveButtonStayVoyage,
+                    styles.QuizScreenLeaveButtonPortico,
+                    styles.QuizScreenLeaveButtonStayPortico,
                   ]}
                 >
                   <Text style={styles.QuizScreenLeaveButtonLabelLight}>
@@ -212,8 +213,8 @@ export function QuizScreen() {
                 <Pressable
                   onPress={confirmLeaveQuiz}
                   style={[
-                    styles.QuizScreenLeaveButtonAnchor,
-                    styles.QuizScreenLeaveButtonLeaveVoyage,
+                    styles.QuizScreenLeaveButtonPortico,
+                    styles.QuizScreenLeaveButtonLeavePortico,
                   ]}
                 >
                   <Text style={styles.QuizScreenLeaveButtonLabelCream}>
@@ -254,16 +255,16 @@ function QuizOptionRow({
       onPress={onPress}
       disabled={isAnswered}
       style={[
-        styles.QuizOptionRowHull,
-        isRevealedCorrect && styles.QuizOptionRowHullCorrectGreen,
-        isWrongSelection && styles.QuizOptionRowHullWrongRed,
-        isDimmed && styles.QuizOptionRowHullDimmedFathom,
+        styles.QuizOptionRowFacet,
+        isRevealedCorrect && styles.QuizOptionRowFacetCorrectGreen,
+        isWrongSelection && styles.QuizOptionRowFacetWrongRed,
+        isDimmed && styles.QuizOptionRowFacetDimmedFiligree,
       ]}
     >
       <Text
         style={[
-          styles.QuizOptionRowLabelVoyage,
-          isDimmed && styles.QuizOptionRowLabelDimmedFathom,
+          styles.QuizOptionRowLabelPortico,
+          isDimmed && styles.QuizOptionRowLabelDimmedFiligree,
         ]}
       >
         {label}
@@ -273,33 +274,36 @@ function QuizOptionRow({
 }
 
 const styles = StyleSheet.create({
-  QuizScreenRootTide: {
+  QuizScreenRootChassis: {
     flex: 1,
   },
-  QuizScreenHeaderLintel: {
+
+  QuizScreenHeaderArt: {
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingHorizontal: layout.screenPaddingHorizontal,
     paddingTop: 54,
   },
-  QuizScreenHeaderTitleLantern: {
+
+  QuizScreenHeaderTitleFiligree: {
     color: colors.gold,
     fontFamily: fonts.sansExtraBold,
     fontSize: fontSize.title + 4,
     fontWeight: '800',
   },
-  QuizScreenHeaderCloseIconCompass: {
+  QuizScreenHeaderCloseIconSigil: {
     height: 20,
     width: 20,
   },
-  QuizScreenIntroContentHarbor: {
+  QuizScreenIntroContentChassis: {
     alignItems: 'center',
     flex: 1,
     justifyContent: 'center',
     paddingHorizontal: layout.screenPaddingHorizontal,
   },
-  QuizScreenMascotBadgeAnchor: {
+
+  QuizScreenMascotBadgePortico: {
     alignItems: 'center',
     backgroundColor: colors.deepTeal,
     borderColor: 'rgba(30, 183, 200, 0.3)',
@@ -310,19 +314,21 @@ const styles = StyleSheet.create({
     marginBottom: 24,
     width: 160,
   },
-  QuizScreenMascotIconLantern: {
+  QuizScreenMascotIconFiligree: {
     height: 72,
     tintColor: colors.gold,
     width: 72,
   },
-  QuizScreenIntroTitleLantern: {
+
+  QuizScreenIntroTitleFiligree: {
     color: colors.gold,
     fontFamily: fonts.sansExtraBold,
     fontSize: fontSize.title + 4,
     fontWeight: '800',
     textAlign: 'center',
   },
-  QuizScreenIntroBodyDriftwood: {
+
+  QuizScreenIntroBodyFiligree: {
     color: colors.cream,
     fontFamily: fonts.sansRegular,
     fontSize: fontSize.body,
@@ -331,19 +337,21 @@ const styles = StyleSheet.create({
     opacity: 0.85,
     textAlign: 'center',
   },
-  QuizScreenIntroButtonWrapVoyage: {
+
+  QuizScreenIntroButtonWrapPortico: {
     marginTop: 28,
     width: '100%',
   },
-  QuizScreenQuestionContentHarbor: {
+
+  QuizScreenQuestionContentChassis: {
     paddingBottom: 40,
     paddingHorizontal: layout.screenPaddingHorizontal,
     paddingTop: 18,
   },
-  QuizScreenProgressRowHorizon: {
+  QuizScreenProgressRowFiligree: {
     marginBottom: 14,
   },
-  QuizScreenQuestionPromptLantern: {
+  QuizScreenQuestionPromptFiligree: {
     color: colors.gold,
     fontFamily: fonts.sansExtraBold,
     fontSize: fontSize.title,
@@ -351,7 +359,8 @@ const styles = StyleSheet.create({
     lineHeight: 26,
     marginBottom: 16,
   },
-  QuizScreenHeroReef: {
+
+  QuizScreenHeroChassis: {
     alignItems: 'center',
     backgroundColor: colors.deepTeal,
     borderRadius: 16,
@@ -361,55 +370,50 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     width: '100%',
   },
-  QuizScreenHeroImageCurrent: {
+  QuizScreenHeroImageArt: {
     height: '100%',
     width: '100%',
   },
-  QuizScreenHeroPlaceholderFathom: {
-    backgroundColor: colors.teal,
-    borderRadius: 20,
-    height: 40,
-    opacity: 0.28,
-    width: 40,
-  },
-  QuizScreenOptionsColFathom: {
+  QuizScreenOptionsColFiligree: {
     gap: 12,
   },
-  QuizScreenNextButtonWrapVoyage: {
+  QuizScreenNextButtonWrapPortico: {
     marginTop: 20,
   },
-  QuizOptionRowHull: {
+  QuizOptionRowFacet: {
     backgroundColor: 'rgba(10, 78, 88, 0.9)',
     borderRadius: 14,
     paddingHorizontal: 18,
     paddingVertical: 16,
   },
-  QuizOptionRowHullCorrectGreen: {
+
+  QuizOptionRowFacetCorrectGreen: {
     backgroundColor: colors.green,
   },
-  QuizOptionRowHullWrongRed: {
+  QuizOptionRowFacetWrongRed: {
     backgroundColor: colors.red,
   },
-  QuizOptionRowHullDimmedFathom: {
+  QuizOptionRowFacetDimmedFiligree: {
     backgroundColor: 'rgba(10, 78, 88, 0.45)',
   },
-  QuizOptionRowLabelVoyage: {
+  QuizOptionRowLabelPortico: {
     color: colors.white,
     fontFamily: fonts.sansSemiBold,
     fontSize: 15,
     fontWeight: '600',
   },
-  QuizOptionRowLabelDimmedFathom: {
+
+  QuizOptionRowLabelDimmedFiligree: {
     opacity: 0.4,
   },
-  QuizScreenLeaveOverlayCurrent: {
+  QuizScreenLeaveOverlayArt: {
     alignItems: 'center',
     backgroundColor: 'rgba(6, 32, 36, 0.7)',
     flex: 1,
     justifyContent: 'center',
     padding: 32,
   },
-  QuizScreenLeaveCardReef: {
+  QuizScreenLeaveCardChassis: {
     backgroundColor: colors.deepTeal,
     borderColor: colors.teal,
     borderRadius: 20,
@@ -417,14 +421,15 @@ const styles = StyleSheet.create({
     padding: 24,
     width: '100%',
   },
-  QuizScreenLeaveTitleLantern: {
+
+  QuizScreenLeaveTitleFiligree: {
     color: colors.gold,
     fontFamily: fonts.sansExtraBold,
     fontSize: fontSize.title,
     fontWeight: '800',
     textAlign: 'center',
   },
-  QuizScreenLeaveBodyDriftwood: {
+  QuizScreenLeaveBodyFiligree: {
     color: colors.cream,
     fontFamily: fonts.sansRegular,
     fontSize: fontSize.body,
@@ -432,21 +437,21 @@ const styles = StyleSheet.create({
     opacity: 0.85,
     textAlign: 'center',
   },
-  QuizScreenLeaveButtonRowHorizon: {
+  QuizScreenLeaveButtonRowFiligree: {
     flexDirection: 'row',
     gap: 12,
     marginTop: 20,
   },
-  QuizScreenLeaveButtonAnchor: {
+  QuizScreenLeaveButtonPortico: {
     alignItems: 'center',
     borderRadius: 14,
     flex: 1,
     paddingVertical: 12,
   },
-  QuizScreenLeaveButtonStayVoyage: {
+  QuizScreenLeaveButtonStayPortico: {
     backgroundColor: colors.green,
   },
-  QuizScreenLeaveButtonLeaveVoyage: {
+  QuizScreenLeaveButtonLeavePortico: {
     backgroundColor: 'transparent',
     borderColor: colors.teal,
     borderWidth: 1.5,

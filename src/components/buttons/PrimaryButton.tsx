@@ -1,8 +1,8 @@
 import React from 'react';
-import {Image, Pressable, StyleSheet, Text} from 'react-native';
-import type {ImageSourcePropType} from 'react-native';
+import { Image, Pressable, StyleSheet, Text } from 'react-native';
+import type { ImageSourcePropType } from 'react-native';
 
-import {colors, fonts, fontSize, layout, radius} from '../../constants/theme';
+import { colors, fonts, fontSize, layout, radius } from '../../constants/theme';
 
 type PrimaryButtonProps = {
   label: string;
@@ -20,25 +20,27 @@ export function PrimaryButton({
   return (
     <Pressable
       onPress={onPress}
-      style={({pressed}) => [
-        styles.PrimaryButtonHull,
-        variant === 'green' && styles.PrimaryButtonHullVoyageGreen,
-        variant === 'orange' && styles.PrimaryButtonHullVoyageOrange,
-        pressed && styles.PrimaryButtonPressedFathom,
-      ]}>
+      style={({ pressed }) => [
+        styles.PrimaryButtonFacet,
+        variant === 'green' && styles.PrimaryButtonFacetPorticoGreen,
+        variant === 'orange' && styles.PrimaryButtonFacetPorticoOrange,
+        pressed && styles.PrimaryButtonPressedFiligree,
+      ]}
+    >
       {icon && (
         <Image
           source={icon}
           resizeMode="contain"
-          style={styles.PrimaryButtonIconCompass}
+          style={styles.PrimaryButtonIconSigil}
         />
       )}
       <Text
         style={[
-          styles.PrimaryButtonLabelVoyage,
+          styles.PrimaryButtonLabelPortico,
           (variant === 'green' || variant === 'orange') &&
-            styles.PrimaryButtonLabelVoyageLight,
-        ]}>
+            styles.PrimaryButtonLabelPorticoLight,
+        ]}
+      >
         {label}
       </Text>
     </Pressable>
@@ -46,7 +48,7 @@ export function PrimaryButton({
 }
 
 const styles = StyleSheet.create({
-  PrimaryButtonHull: {
+  PrimaryButtonFacet: {
     alignItems: 'center',
     backgroundColor: colors.gold,
     borderRadius: radius.button,
@@ -55,36 +57,39 @@ const styles = StyleSheet.create({
     height: layout.buttonHeight,
     justifyContent: 'center',
     shadowColor: colors.black,
-    shadowOffset: {width: 0, height: 4},
+    shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.28,
     shadowRadius: 0,
     elevation: 4,
     width: '100%',
   },
-  PrimaryButtonHullVoyageGreen: {
+
+  PrimaryButtonFacetPorticoGreen: {
     backgroundColor: colors.green,
   },
-  PrimaryButtonHullVoyageOrange: {
+  PrimaryButtonFacetPorticoOrange: {
     backgroundColor: colors.orange,
     height: undefined,
     paddingVertical: 10,
     shadowOpacity: 0.25,
   },
-  PrimaryButtonPressedFathom: {
+  PrimaryButtonPressedFiligree: {
     opacity: 0.85,
   },
-  PrimaryButtonIconCompass: {
+  PrimaryButtonIconSigil: {
     height: 15,
     width: 15,
   },
-  PrimaryButtonLabelVoyage: {
+
+  PrimaryButtonLabelPortico: {
     color: colors.goldDeep,
     fontFamily: fonts.sansBold,
     fontSize: fontSize.button,
     fontWeight: '700',
     letterSpacing: 0.3,
   },
-  PrimaryButtonLabelVoyageLight: {
+
+  PrimaryButtonLabelPorticoLight: {
     color: colors.white,
   },
 });

@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 
 import { PrimaryButton } from '../components/buttons/PrimaryButton';
+
 import { ArticleTagBadge } from '../components/articles/ArticleTagBadge';
 
 import { colors, fonts, fontSize } from '../constants/theme';
